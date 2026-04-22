@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공지사항 – 신성치과</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@latest/dist/web/static/pretendard.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/notices.css">
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="photo/신성치과로고_가로.png" alt="신성치과" class="nav-logo-img">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">홈</a></li>
+      <li><a href="services.html">진료과목</a></li>
+      <li><a href="doctors.html">의료진</a></li>
+      <li><a href="location.html">오시는길</a></li>
+      <li><a href="notices.html">공지사항</a></li>
+    </ul>
+    <div class="nav-cta">
+      <span class="nav-phone">02-464-1574</span>
+      <a href="contact.html" class="btn btn-primary">예약하기</a>
+    </div>
+    <button class="nav-hamburger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile-overlay"></div>
+<div class="nav-mobile-panel">
+  <button class="nav-mobile-close">✕</button>
+  <nav class="nav-mobile-links">
+    <a href="index.html">홈</a>
+    <a href="services.html">진료과목</a>
+    <a href="doctors.html">의료진</a>
+    <a href="location.html">오시는길</a>
+    <a href="notices.html">공지사항</a>
+  </nav>
+  <div class="nav-mobile-bottom"><a href="contact.html" class="btn btn-primary">예약하기</a></div>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">홈</a><span class="sep">›</span><span class="current">공지사항</span></nav>
+    <p class="page-hero-label">Notice</p>
+    <h1>공지사항</h1>
+    <p>신성치과의 새로운 소식과 안내를 확인하세요.</p>
+  </div>
+</div>
+
+<section class="notices-section">
+  <div class="container">
+
+    <!-- 목록 뷰 -->
+    <div id="noticeList">
+      <table class="notice-table">
+        <thead>
+          <tr>
+            <th class="col-num">번호</th>
+            <th class="col-cat">분류</th>
+            <th class="col-title">제목</th>
+            <th class="col-date">날짜</th>
+          </tr>
+        </thead>
+        <tbody id="noticeTableBody">
+          <!-- JS로 렌더링 -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 상세 뷰 (숨김) -->
+    <div id="noticeDetail" class="notice-detail hidden">
+      <button class="btn-back" id="btnBack">← 목록으로</button>
+      <div class="detail-header">
+        <span class="detail-category" id="detailCategory"></span>
+        <h2 class="detail-title" id="detailTitle"></h2>
+        <p class="detail-date" id="detailDate"></p>
+      </div>
+      <div class="detail-body" id="detailBody"></div>
+      <div class="detail-nav">
+        <button class="btn btn-outline" id="btnPrev">← 이전 글</button>
+        <a href="notices.html" class="btn btn-primary">목록</a>
+        <button class="btn btn-outline" id="btnNext">다음 글 →</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-text">신성치과</div>
+        <div class="logo-en">SHINSUNG DENTAL CLINIC</div>
+        <p>서울특별시 성동구 아차산로 96<br>신성빌딩 2층 (성수역 4번출구 앞)<br>대표원장: 구진희</p>
+      </div>
+      <div class="footer-links">
+        <h4>바로가기</h4>
+        <ul>
+          <li><a href="services.html">진료과목</a></li>
+          <li><a href="doctors.html">의료진 소개</a></li>
+          <li><a href="location.html">오시는길</a></li>
+          <li><a href="notices.html">공지사항</a></li>
+          <li><a href="contact.html">예약·문의</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>전화 예약</h4>
+        <div class="phone">02-464-1574</div>
+        <div class="hours">월·수·금 10:00–19:00<br>화요일 10:00–21:00 (야간)<br>목요일 10:00–16:00<br>토요일 10:00–13:00</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright">© 2024 신성치과의원. All rights reserved.</p>
+      <p class="footer-info">사업자등록번호: [확인 필요]</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/notices-data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const tbody = document.getElementById('noticeTableBody');
+  const listView = document.getElementById('noticeList');
+  const detailView = document.getElementById('noticeDetail');
+  let currentIndex = 0;
+
+  /* 목록 렌더링 */
+  function renderList() {
+    tbody.innerHTML = NOTICES.map((n, i) => `
+      <tr class="notice-row" data-index="${i}">
+        <td class="col-num">${NOTICES.length - i}</td>
+        <td class="col-cat"><span class="notice-badge cat-${n.category}">${n.category}</span></td>
+        <td class="col-title notice-title-cell">${n.title}</td>
+        <td class="col-date">${n.date}</td>
+      </tr>
+    `).join('');
+
+    document.querySelectorAll('.notice-row').forEach(row => {
+      row.addEventListener('click', () => showDetail(parseInt(row.dataset.index)));
+    });
+  }
+
+  /* 상세 보기 */
+  function showDetail(index) {
+    currentIndex = index;
+    const n = NOTICES[index];
+    document.getElementById('detailCategory').textContent = n.category;
+    document.getElementById('detailCategory').className = `detail-category cat-${n.category}`;
+    document.getElementById('detailTitle').textContent = n.title;
+    document.getElementById('detailDate').textContent = n.date;
+    document.getElementById('detailBody').innerHTML = n.content;
+
+    document.getElementById('btnPrev').disabled = index >= NOTICES.length - 1;
+    document.getElementById('btnNext').disabled = index <= 0;
+
+    listView.classList.add('hidden');
+    detailView.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.getElementById('btnBack').addEventListener('click', () => {
+    detailView.classList.add('hidden');
+    listView.classList.remove('hidden');
+  });
+
+  document.getElementById('btnPrev').addEventListener('click', () => {
+    if (currentIndex < NOTICES.length - 1) showDetail(currentIndex + 1);
+  });
+
+  document.getElementById('btnNext').addEventListener('click', () => {
+    if (currentIndex > 0) showDetail(currentIndex - 1);
+  });
+
+  renderList();
+</script>
+</body>
+</html>

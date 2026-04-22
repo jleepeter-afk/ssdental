@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:unsplash.com)",
+      "WebFetch(domain:www.pexels.com)",
+      "Bash(curl -s \"https://images.pexels.com/photos/5355816/pexels-photo-5355816.jpeg?auto=compress&cs=tinysrgb&w=800\" -o \"D:/신성치과홈피/images/services/pediatric.jpg\")",
+      "WebFetch(domain:ssclinic.co.kr)",
+      "Bash(curl -sk \"https://ssclinic.co.kr/shinsung04.php\")",
+      "Bash(python3 -c \"import sys,html; from html.parser import HTMLParser; class P\\(HTMLParser\\): def __init__\\(self\\): super\\(\\).__init__\\(\\); self.text=[] def handle_data\\(self,d\\): t=d.strip\\(\\); self.text.append\\(t\\) if t else None p=P\\(\\); p.feed\\(sys.stdin.read\\(\\)\\); print\\('\\\\n'.join\\(p.text\\)\\)\")",
+      "Bash(grep -v '^$')",
+      "Bash(curl -v --insecure \"https://ssclinic.co.kr/\")",
+      "Bash(curl --insecure \"http://ssclinic.co.kr/shinsung04.php\" -o D:/신성치과홈피/tmp_doctor.html)",
+      "Bash(curl --insecure \"http://ssclinic.co.kr/\" -o D:/신성치과홈피/tmp_index.html)",
+      "Bash(curl --insecure \"http://ssclinic.co.kr/pages/shinsung01.php\" -o D:/신성치과홈피/tmp_about.html)",
+      "Bash(grep -oP '\\(?<=>\\)[^<]{5,}\\(?=<\\)' D:/신성치과홈피/tmp_about.html)",
+      "Bash(grep -v \"^\\\\s*$\")",
+      "Bash(curl --insecure \"http://ssclinic.co.kr/pages/shinsung01.php\" -o D:/신성치과홈피/tmp_about.html grep -o '>[^<]*<' D:/신성치과홈피/tmp_about.html)",
+      "Bash(grep -E '.{4,}')",
+      "WebFetch(domain:the365-mokdong.com)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(curl -sk \"https://the365-mokdong.com/\" -o D:/신성치과홈피/tmp_ref.html)",
+      "Bash(grep -E '.{3,}')",
+      "Bash(curl -sk \"https://the365-mokdong.com/css/default2.css\")",
+      "Bash(curl -sk \"https://the365-mokdong.com/css/all.css\")",
+      "Bash(curl -sk \"https://the365-mokdong.com/css/default.css\")",
+      "Bash(grep -v \"^$\")",
+      "Bash(grep -v \"^--$\")",
+      "Bash(awk 'NR>80 && NR<200')"
+    ]
+  }
+}

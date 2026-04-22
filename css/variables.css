@@ -1,0 +1,46 @@
+:root {
+  /* Brand Colors (로고 기반) */
+  --color-primary: #1058A0;
+  --color-primary-dark: #0D4A88;
+  --color-primary-light: #E0EEF8;
+  --color-accent: #E89610;
+  --color-accent-dark: #CC8208;
+
+  /* Neutral */
+  --color-bg: #FFFFFF;
+  --color-surface: #EBF4FA;
+  --color-border: #B8D8EE;
+  --color-text: #141F2E;
+  --color-text-secondary: #476070;
+  --color-text-light: #7A9AAE;
+
+  /* Status */
+  --color-success: #28A97A;
+
+  /* Typography */
+  --font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.7;
+
+  /* Spacing */
+  --section-padding: 80px 0;
+  --container-max: 1100px;
+  --container-padding: 0 24px;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Shadow */
+  --shadow-sm: 0 2px 8px rgba(26, 111, 168, 0.08);
+  --shadow-md: 0 6px 24px rgba(26, 111, 168, 0.12);
+  --shadow-lg: 0 16px 48px rgba(26, 111, 168, 0.16);
+
+  /* Transition */
+  --transition: 0.25s ease;
+
+  /* Nav height */
+  --nav-height: 88px;
+}

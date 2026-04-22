@@ -1,0 +1,207 @@
+/* ===== MAP ===== */
+.location-section { padding: 60px 0 80px; }
+
+.map-wrap { margin-bottom: 48px; }
+
+.map-placeholder {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.map-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.map-links {
+  display: flex;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #fff;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ===== INFO GRID ===== */
+.loc-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.loc-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.loc-card-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.loc-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+.loc-card p {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.loc-sub {
+  font-size: 13px !important;
+  color: var(--color-text-light) !important;
+  margin-top: 6px;
+}
+
+.loc-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+.loc-hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 4px;
+}
+
+.loc-hours-table th,
+.loc-hours-table td {
+  padding: 8px 0;
+  font-size: 13px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.loc-hours-table th {
+  font-weight: 600;
+  color: var(--color-text);
+  width: 52%;
+}
+
+.loc-hours-table td { color: var(--color-text-secondary); }
+
+.loc-hours-table .highlight th,
+.loc-hours-table .highlight td {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.loc-hours-table .highlight em {
+  font-style: normal;
+  font-size: 10px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  padding: 1px 5px;
+  border-radius: var(--radius-full);
+  margin-left: 3px;
+}
+
+.loc-hours-table .lunch th,
+.loc-hours-table .lunch td { color: var(--color-text-light); font-size: 12px; }
+
+.loc-hours-table .closed th,
+.loc-hours-table .closed td { color: #E05050; }
+
+.loc-phone {
+  display: block;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 8px 0 4px;
+}
+
+/* ===== TRANSPORT ===== */
+.transport-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.transport-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.transport-icon { font-size: 28px; margin-bottom: 12px; }
+
+.transport-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.transport-card li {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.line-2 { background: #00A84D; }
+.line-bundang { background: #F5A200; width: 36px; border-radius: 11px; font-size: 10px; }
+
+.bus-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.bus-night  { background: #1A2B3C; color: #fff; }
+.bus-branch { background: #5B8FD4; color: #fff; }
+.bus-village { background: #68C46B; color: #fff; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .loc-info-grid { grid-template-columns: 1fr; }
+  .transport-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .map-img { height: 260px; }
+  .map-links { flex-direction: column; }
+  .transport-grid { grid-template-columns: 1fr; }
+}
